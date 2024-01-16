@@ -6,6 +6,8 @@ const Navbar = () => {
     const[active, setActive] = useState(false)
     const[open, setOpen] = useState(false)
 
+    const {pathname} = useLocation
+
 const isActive = () =>{
     window.scrollY > 0 ? setActive(true) : setActive(false)
 };
@@ -24,12 +26,12 @@ const currentUser= {
 }
 
     return(
-        <div className={active ? "navbar active" : "navbar"}>
+        <div className={active || pathname !=="/"  ? "navbar active" : "navbar"}>
             <div className="container">
                 <div className="logo">
-                    
+                    <Link to="/" className="link">
                     <span className='text'>MIXR</span>
-                    
+                    </Link>
                     <span className='dot'>.</span>
                 </div>
                 <div className="links">
@@ -47,26 +49,29 @@ const currentUser= {
                                 {
                                     currentUser?.isSeller && (
                                         <>
-                                        <span>Gigs</span>
-                                        <span>Add New Gig</span>
-                                        <span>Orders</span>
-                                        <span>Messages</span>
-                                        <span>Logout</span>
+                                        <Link classname="link" to="/mygigs">Gigs</Link>
+                                        <Link classname="link" to="/add">Add New Gig</Link>
                                         </>
-                                    )
-                                }
+                                    )}
+                                        <Link classname="link" to="/orders">Orders</Link>
+                                        <Link classname="link" to="/messages">Messages</Link>
+                                        <Link classname="link" to="/">Logout</Link>
                             </div>}
                         </div>
                      )}
                 </div>
             </div>
-            {active && (
+            {(active || pathname !=="/") && (
             <>
             <hr />
             <div className="menu">
-                <span>Test</span>
-                <span>Test2</span>
-                <span>Test3</span>
+                <Link className="link menulink" to="/">All Musicians</Link>
+                <Link className="link" to="/">Rock</Link>
+                <Link className="link" to="/">DJs</Link>
+                <Link className="link" to="/">Pianists</Link>
+                <Link className="link" to="/">Jazz</Link>
+                <Link className="link" to="/">Blues</Link>
+                <Link className="link" to="/">Vocalists</Link>
             </div>
             </>
             )}
