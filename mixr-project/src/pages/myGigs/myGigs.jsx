@@ -1,5 +1,5 @@
 import React from "react"
-import "./myGigs/.scss"
+import "./myGigs.scss"
 
 const myGigs = () => {
     return(

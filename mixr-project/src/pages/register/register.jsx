@@ -1,5 +1,5 @@
 import React from "react"
-import "./Register/.scss"
+import "./register.scss"
 
 const Register = () => {
     return(
