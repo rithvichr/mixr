@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "sass": "^1.69.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2"
+  }
+}
